@@ -41,11 +41,13 @@
 								<a href="{{repo.html_url}}/issues/{{issue.number}}" target="_blank">{{issue.title | limitTo:80 }}...</a>
 							</li>
 						</ul>
-						<a href="javascript:;" ng-show="showIssues" ng-click="showSingleRepo(repo, repo.full_name)" class="infinite-scroll">More...</a>
+						<a href="javascript:;" ng-show="showIssues" ng-click="showSingleRepo(repo, repo.full_name)" class="infinite-scroll">More issues...</a>
 					</div>
 				</div>
 			</li>
 		</ul>
+
+		<a href="javascript:;" ng-click="getRepos(myValue)" class="btn">More repositories...</a>
 
 		<h2 ng-class="{active:!repositories.length}" class="error empty-repo">Unfortunately no repositories exist with that name!</h2>
 

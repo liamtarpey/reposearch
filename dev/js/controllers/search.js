@@ -20,6 +20,8 @@ app.controller('search',
 	$scope.showIssues     = false;
 	$scope.perPage        = 0;
 	$scope.pageNumber     = 1;
+	$scope.reposPerPage   = 0;
+	$scope.repoPageNum    = 1;
 
 	$scope.getRepos = function(val) {
 
@@ -29,8 +31,17 @@ app.controller('search',
 		// Remove expand if true
 		$scope.showSingle   = false;
 
+
+		if($scope.reposPerPage > 100) {
+
+			$scope.repoPageNum += 1;
+		} else {
+
+			$scope.reposPerPage += 30;
+		}
+
 		// API call with value passed from input
-		api.getData(getRepoUrl+val).then(function(data) {
+		api.getData(getRepoUrl+val+"&per_page="+$scope.reposPerPage+"&page="+$scope.repoPageNum).then(function(data) {
 
 			// Hide loading message
 			$scope.loading = false;
@@ -53,14 +64,16 @@ app.controller('search',
 
 	$scope.getRepositoryIssues = function(item, fullname) {
 
-		// Increment the posts per page by 3 on every call
-		$scope.perPage += 3;
-
+	
 		// Increment the page number by 1 once the API call reaches the max limit of 100 results per page
 		if($scope.perPage > 100) {
 
 			$scope.pageNumber += 1;
-		};
+		} else {
+
+			// Increment the posts per page by 3 on every call
+			$scope.perPage += 3;
+		}
 
 		// API call to retreive issues
   		api.getData(getRepoIssues+fullname+"/issues?per_page="+$scope.perPage+"&page="+$scope.pageNumber).then(function(data) {
@@ -76,6 +89,8 @@ app.controller('search',
   		    spliced = $scope.repositories.splice(index, 1);  
 
   		$scope.repositories = spliced;
+
+  		$scope.reposPerPage = 0;
 
   		$scope.getRepositoryIssues(item, fullname, page);
 
