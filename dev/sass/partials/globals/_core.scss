@@ -5,7 +5,7 @@
 
 $backgroundColor: $col-darkgrey;
 $containerWidth: 1400px;
-$containerPadding: $baseline;
+$containerPadding: 0 $baseline;
 $containerCentering: true;
 $includeBorderBox: true;
 
@@ -28,6 +28,7 @@ html, body {
 body {
 
 	background: $backgroundColor;
+	@include transition(all .3s ease-in-out);
 }
 
 .wrapper {
@@ -42,5 +43,9 @@ body {
 	}
 }
 
+.loading {
+
+	opacity: .5;
+}
 
 // ============================================================

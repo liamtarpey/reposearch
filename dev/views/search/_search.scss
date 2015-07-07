@@ -7,25 +7,59 @@
 
 .search-area {
 
-	width: 20%;
-	float: left;
 	@include transition(all .3s ease-in-out);
 	position: relative;
-	left: 50%;
-	@include translateX(-50%);
+	color: $col-white;
 
-	&.left {
+	@include breakpoint($tablet) {
 
-		left: 0;
-		margin: 0;
-		@include translateX(0);
+		width: 20%;
+		float: left;
+		left: 50%;
+		@include translateX(-50%);
+
+		&.left {
+
+			left: 0;
+			margin: 0;
+			@include translateX(0);
+		}
 	}
 }
 
 .search-results {
+	
+	padding-top: $baseline*2;
+	position: relative;
+	@include transition(all .3s ease-in-out);
 
-	width: 75%;
-	float: right;
+	@include breakpoint($tablet) {
+
+		width: 75%;
+		float: right;
+		@include translateX(200%);
+
+		&.active {
+
+			@include translateX(0);
+		}
+	}
+
+	// Empty repo list
+	.empty-repo {
+
+		background: $col-white;
+		padding: $baseline;
+		@include translateX(200%);
+		@include transition(all .3s ease-in-out);
+		opacity: 0;
+
+		&.active {
+
+			@include translateX(0);
+			opacity: 1;
+		}
+	}
 
 	// Results list
 	.results-list {
@@ -35,28 +69,81 @@
 		li {
 
 			float: left;
-			width: 24.25%;
+			width: 49.5%;
 			margin: 0 1% 1% 0;
 			background: $col-white;
-			padding: $baseline;
-			min-height: 160px;
 			@include transition(all .3s ease-in-out);
+
+			&:nth-child(even) {
+
+				margin: 0 0 1% 0;
+			}
+
+			@include breakpoint($tablet) {
+
+				width: 32.65%;
+				margin: 0 1% 1% 0;
+
+				&:nth-child(even) {
+
+					margin: 0 1% 1% 0;
+				}
+
+				&:nth-child(3n+3) {
+
+					margin: 0 0 1% 0;
+				}
+
+				&:nth-child(3n+4) {
+
+					clear: left;
+				}
+			}
+
+			@include breakpoint($desktop) {
+
+				width: 24.25%;
+				margin: 0 1% 1% 0;
+
+				&:nth-child(even),
+				&:nth-child(3n+3)  {
+
+					margin: 0 1% 1% 0;
+				}
+
+				&:nth-child(4n+4) {
+
+					margin: 0 0 1% 0;
+				}
+
+				&:nth-child(3n+4) {
+
+					clear: none;
+				}
+
+				&:nth-child(4n+5) {
+
+					clear: left;
+				}
+			}
 
 			&.expand {
 
 				width: 100%;
 				margin: 0;
 				text-align: center;
+
+				.repo-header h2 {
+
+					@include font(30);
+					text-align: center;
+				}
 			}
 
-			&:nth-child(4n+4) {
+			.inner-link {
 
-				margin: 0 0 1% 0;
-			}
-
-			&:nth-child(4n+5) {
-
-				clear: left;
+				min-height: 160px;
+				padding: $baseline;
 			}
 
 			.repo-header {
@@ -75,6 +162,7 @@
 
 					text-align: left;
 					color: $col-darkgrey;
+					@include transition(all .3s ease-in-out);
 				}
 			}
 		}
@@ -83,9 +171,38 @@
 	// Single result
 	.single-result {
 
+		padding: $baseline;
+
 		.single-result-header {
 
 			background: $col-white;
+
+			img {
+
+				width: 70px;
+			}
+		}
+
+		.repo-info {
+
+			opacity: 0;
+			@include transition(all .3s ease-in-out);
+
+			&.active {
+
+				opacity: 1;
+			}
+
+			a {
+
+				text-decoration: underline;
+			}
 		}
 	}
 }
+
+
+
+
+
+

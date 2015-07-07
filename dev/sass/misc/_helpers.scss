@@ -6,37 +6,31 @@
 .block {
 
 	display: block;
-
 }
 
 .inline {
 
 	display: inline-block;
-
 }
 
 .pull-left {
 
 	float: left;
-
 }
 
 .pull-right {
 
 	float: right;
-
 }
 
 .text-center {
 
 	text-align: center;
-
 }
 
 .text-right {
 
 	text-align: right;
-
 }
 
 .browsehappy {
@@ -45,20 +39,22 @@
 	background: red;
 	width: 100%;
 	text-align:center;
-
 }
 
 .mb {
 
 	margin-bottom: $baseline/2;
 	display: block;
-
 }
 
 .invisible {
 
 	visibility: hidden;
+}
 
+.hidden {
+
+	display: none;
 }
 
 // ============================================================

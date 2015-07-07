@@ -29,7 +29,7 @@ textarea {
 	margin-bottom: $baseline/2;
 	@include border-radius($inputBorderRadius);
 	border: none; // reset base style
-	border-bottom: 3px solid $col-white;
+	border-bottom: 4px solid $col-white;
 
 	@if $disableFocus {
 
@@ -49,10 +49,12 @@ input[type="password"] {
 
 	display: block;
 	width: 100%;
-	max-width: $inputMaxWidth;
+	//max-width: $inputMaxWidth;
 	padding: $baseline/2 0;
 	background: none;
 	margin: 0 auto;
+	color: $col-white;
+	text-align: center;
 }
 
 select,
@@ -77,7 +79,6 @@ input[type="submit"] {
 	padding: $baseline/4 $baseline/2;
 	background: $primaryBtnBg;
 	color: $primaryBtnCol;
-	display: inline-block;
 
 	&:hover {
 

@@ -10,9 +10,7 @@
 		@media (min-width:$mobile) {
 
 			@content;
-		
 		}
-
 	}
 
 	@if $size == $tablet {
@@ -20,11 +18,16 @@
 		@media (min-width:$tablet) {
 
 			@content
-
 		}
-
 	}
 
+	@if $size == $desktop {
+
+		@media (min-width:$desktop) {
+
+			@content
+		}
+	}
 }
 
 // ============================================================

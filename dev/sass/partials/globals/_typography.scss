@@ -15,7 +15,7 @@ html {
 
 h1, h2, h3, h4, h5, h6, p {
 
-	  margin-bottom: $baseline/2;
+	margin-bottom: $baseline/2;
     font-family: $raleway;
     text-align: center;
 }
@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6, p {
 body, button, p, a, input, textarea, select  {
 
     @include font(16);
-    color: $col-white;
+    color: $col-darkgrey;
 }
 
 h1, .h1, .alpha {

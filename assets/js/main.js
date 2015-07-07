@@ -27626,12 +27626,15 @@ app.controller('search',
 	$scope.pushSearchLeft = false;
 	$scope.showSingle     = false;
 	$scope.loading        = false;
-	$scope.expandHeader   = false;
+	$scope.delayInfo      = false;
 
 	$scope.getRepos = function(val) {
 
 		// Show loading message
 		$scope.loading = true;
+
+		// Remove expand if true
+		$scope.showSingle   = false;
 
 		// API call with value passed from input
 		api.getData(getRepoUrl+val).then(function(data) {
@@ -27646,16 +27649,16 @@ app.controller('search',
 			// Append data to scope
 			$scope.repositories = data.items;
 
+			if($scope.repositories.length == 0) {
+
+				console.log("empty!")
+			}
+
 			console.log($scope.repositories);
 		});
 	};
 
 	$scope.showSingleRepo = function(item) {
-
-		// Hide all results and show single repo view
-		$scope.showSingle = true;
-
-		console.log(item);
 
 		var index   = $scope.repositories.indexOf(item),
   		    spliced = $scope.repositories.splice(index, 1);  
@@ -27664,8 +27667,14 @@ app.controller('search',
 
   		$timeout(function() {
 
-  			$scope.expandHeader = true;
+  			// Hide all results and show single repo view
+			$scope.showSingle = true;
   		},500);
+
+  		$timeout(function() {
+
+  			$scope.delayInfo = true;
+  		}, 1000);
 	};
 
 }]);

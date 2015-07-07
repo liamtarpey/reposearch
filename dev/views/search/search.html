@@ -1,27 +1,23 @@
 
-
-<!-- <input type="text" placeholder="Search here!" ng-model="myValue" ng-keyup="getRepos(myValue)" /> -->
-{{showSingleRepo}}
-
 <div class="search-container">
-	<div class="search-area left" ng-class="{left:pushSearchLeft}">
+	<div class="search-area" ng-class="{left:pushSearchLeft}">
 		<header class="global-header">
 	        <svg class="github-icon">
 	          <use xlink:href="#icon-github4"></use>
 	        <svg>
 	        <h1>Search Github Repos</h1>
 	    </header>
-		<input type="text" placeholder="Search here!" ng-model="myValue" />
-		<a href="javascript:;" ng-click="getRepos(myValue)">Search</a>
+	    <form ng-submit="getRepos(myValue)">
+			<input type="text" ng-model="myValue" autofocus />
+			<input type="submit" class="hidden" />
+		</form>
 	</div>
 
-	<div class="search-results" ng-if="showResults">
-		<p ng-if="loading">Loading...</p>
+	<div class="search-results" ng-class="{active:showResults}">
 
-		<ul class="results-list">
-			<li ng-repeat="repo in repositories" ng-class="{expand:expandHeader}">
-				{{showSingleRepo}}
-				<a href="javascript:;" target="_blank" class="block" ng-click="showSingleRepo(repo)" ng-if="!showSingle">
+		<ul class="results-list" ng-class="{loading:loading}" ng-show="repositories.length">
+			<li ng-repeat="repo in repositories" ng-class="{expand:showSingle}">
+				<a href="javascript:;" target="_blank" class="block inner-link" ng-click="showSingleRepo(repo)" ng-if="!showSingle">
 					<div class="repo-header">
 						<img ng-src="{{repo.owner.avatar_url}}" alt="Owner avatar" />
 						<h2 ng-bind-html="repo.name"></h2>
@@ -32,8 +28,14 @@
 						<img ng-src="{{repo.owner.avatar_url}}" alt="Owner avatar" />
 						<h2 ng-bind-html="repo.name"></h2>
 					</div>
+					<div class="repo-info" ng-class="{active:delayInfo}">
+						<a ng-href="{{repo.html_url}}" target="_blank" ng-bind-html="repo.html_url"></a>
+					</div>
 				</div>
 			</li>
 		</ul>
+
+		<h2 ng-class="{active:!repositories.length}" class="error empty-repo">Unfortunately no repositories exist with that name!</h2>
+
 	</div>
 </div>
