@@ -79,6 +79,9 @@ input[type="submit"] {
 	padding: $baseline/4 $baseline/2;
 	background: $primaryBtnBg;
 	color: $primaryBtnCol;
+	@include border-radius(4px);
+	text-transform: uppercase;
+	display: inline-block;
 
 	&:hover {
 

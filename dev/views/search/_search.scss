@@ -66,7 +66,7 @@
 
 		@include cf;
 
-		li {
+		.single-repo {
 
 			float: left;
 			width: 49.5%;
@@ -155,7 +155,7 @@
 					width: 36px;
 					display: block;
 					height: auto;
-					display: inline-block;
+					margin-bottom: $baseline/2;
 				}
 
 				h2 {
@@ -171,11 +171,10 @@
 	// Single result
 	.single-result {
 
-		padding: $baseline;
-
-		.single-result-header {
+		.repo-header {
 
 			background: $col-white;
+			padding: $baseline;
 
 			img {
 
@@ -197,6 +196,33 @@
 
 				text-decoration: underline;
 			}
+		}
+
+		.repo-issues {
+
+			border-top: 1px solid $col-lightgrey;
+		    padding-top: 40px;
+		    margin-top: 40px;
+
+		    .issue-list {
+
+		    	list-style: disc inside none;
+		    	text-align: left;
+		    	padding: $baseline;
+		    }
+
+		    .infinite-scroll {
+
+		    	width: 100%;
+		    	background: $col-lightgrey;
+		    	display: block;
+		    	padding: $baseline;
+		    }
+		}
+
+		.single-issue {
+
+			margin: $baseline 0;
 		}
 	}
 }

@@ -9,16 +9,16 @@
 	    </header>
 	    <form ng-submit="getRepos(myValue)">
 			<input type="text" ng-model="myValue" autofocus />
-			<input type="submit" class="hidden" />
+			<!-- <input type="submit" class="hidden" /> -->
 		</form>
 	</div>
 
 	<div class="search-results" ng-class="{active:showResults}">
 
 		<ul class="results-list" ng-class="{loading:loading}">
-			<li ng-repeat="repo in repositories" ng-class="{expand:showSingle}">
-				<a href="javascript:;" target="_blank" class="block inner-link" ng-click="showSingleRepo(repo)" ng-if="!showSingle">
-					<div class="repo-header">
+			<li ng-repeat="repo in repositories" ng-class="{expand:showSingle}" class="single-repo">
+				<a href="javascript:;" target="_blank" class="block inner-link" ng-click="showSingleRepo(repo, repo.full_name)" ng-if="!showSingle">
+				<div class="repo-header">
 						<img ng-src="{{repo.owner.avatar_url}}" alt="Owner avatar" />
 						<h2 ng-bind-html="repo.name"></h2>
 					</div>
@@ -32,6 +32,16 @@
 						<a ng-href="{{repo.html_url}}" target="_blank" class="block" ng-bind-html="repo.html_url"></a>
 						<p ng-bind-html="repo.description" ng-if="repo.description.length"></p>
 						<p class="octicon octicon-eye-watch">{{repo.watchers}} Watchers</p>
+					</div>
+					<div class="repo-issues">
+						<h3>{{repo.open_issues}} Open Issues</h3>
+						<a href="javascript:;" ng-click="showIssues=!showIssues" class="btn">See Issues</a>
+						<ul ng-show="showIssues" class="issue-list">
+							<li ng-repeat="issue in issues" class="single-issue">
+								<a href="{{repo.html_url}}/issues/{{issue.number}}" target="_blank">{{issue.title | limitTo:80 }}...</a>
+							</li>
+						</ul>
+						<a href="javascript:;" ng-show="showIssues" ng-click="showSingleRepo(repo, repo.full_name)" class="infinite-scroll">More...</a>
 					</div>
 				</div>
 			</li>

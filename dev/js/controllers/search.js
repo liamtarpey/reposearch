@@ -7,7 +7,9 @@ app.controller('search',
 	function ($scope, $http, $sce, $timeout, api) {
 
 	// Vars
-	var getRepoUrl = "https://api.github.com/search/repositories?q=";
+	var getRepoUrl    = "https://api.github.com/search/repositories?q=",
+		getRepoIssues = "https://api.github.com/repos/";
+
 
 	// Scope vars
 	$scope.showResults    = false;
@@ -15,6 +17,9 @@ app.controller('search',
 	$scope.showSingle     = false;
 	$scope.loading        = false;
 	$scope.delayInfo      = false;
+	$scope.showIssues     = false;
+	$scope.perPage        = 0;
+	$scope.pageNumber     = 1;
 
 	$scope.getRepos = function(val) {
 
@@ -46,12 +51,33 @@ app.controller('search',
 		});
 	};
 
-	$scope.showSingleRepo = function(item) {
+	$scope.getRepositoryIssues = function(item, fullname) {
 
+		// Increment the posts per page by 3 on every call
+		$scope.perPage += 3;
+
+		// Increment the page number by 1 once the API call reaches the max limit of 100 results per page
+		if($scope.perPage > 100) {
+
+			$scope.pageNumber += 1;
+		};
+
+		// API call to retreive issues
+  		api.getData(getRepoIssues+fullname+"/issues?per_page="+$scope.perPage+"&page="+$scope.pageNumber).then(function(data) {
+
+  			$scope.issues = data;
+  		});
+	};
+
+	$scope.showSingleRepo = function(item, fullname, page) {
+
+		// Remove all other items from repository array
 		var index   = $scope.repositories.indexOf(item),
   		    spliced = $scope.repositories.splice(index, 1);  
 
   		$scope.repositories = spliced;
+
+  		$scope.getRepositoryIssues(item, fullname, page);
 
   		$timeout(function() {
 
@@ -61,6 +87,7 @@ app.controller('search',
 
   		$timeout(function() {
 
+  			// Fade in info with timeout
   			$scope.delayInfo = true;
   		}, 1000);
 	};

@@ -195,8 +195,15 @@ input[type="submit"] {
   padding: 5px 10px;
   background: #17ad8a;
   color: white;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  display: inline-block;
 }
-/* line 83, ../../dev/sass/partials/globals/_forms.scss */
+/* line 86, ../../dev/sass/partials/globals/_forms.scss */
 .btn:hover,
 button:hover,
 input[type="submit"]:hover {
@@ -204,21 +211,21 @@ input[type="submit"]:hover {
   background: #d13e36;
   text-decoration: none;
 }
-/* line 90, ../../dev/sass/partials/globals/_forms.scss */
+/* line 93, ../../dev/sass/partials/globals/_forms.scss */
 .btn.secondary,
 button.secondary,
 input[type="submit"].secondary {
   background: #2b78c4;
   color: white;
 }
-/* line 95, ../../dev/sass/partials/globals/_forms.scss */
+/* line 98, ../../dev/sass/partials/globals/_forms.scss */
 .btn.secondary:hover,
 button.secondary:hover,
 input[type="submit"].secondary:hover {
   color: white;
   background: #c4c416;
 }
-/* line 102, ../../dev/sass/partials/globals/_forms.scss */
+/* line 105, ../../dev/sass/partials/globals/_forms.scss */
 .btn:hover,
 button:hover,
 input[type="submit"]:hover {
@@ -1643,7 +1650,7 @@ em {
   clear: both;
 }
 /* line 69, ../../dev/views/search/_search.scss */
-.search-results .results-list li {
+.search-results .results-list .single-repo {
   float: left;
   width: 49.5%;
   margin: 0 1% 1% 0;
@@ -1654,88 +1661,88 @@ em {
   transition: all 0.3s ease-in-out;
 }
 /* line 77, ../../dev/views/search/_search.scss */
-.search-results .results-list li:nth-child(even) {
+.search-results .results-list .single-repo:nth-child(even) {
   margin: 0 0 1% 0;
 }
 @media (min-width: 840px) {
   /* line 69, ../../dev/views/search/_search.scss */
-  .search-results .results-list li {
+  .search-results .results-list .single-repo {
     width: 32.65%;
     margin: 0 1% 1% 0;
   }
   /* line 87, ../../dev/views/search/_search.scss */
-  .search-results .results-list li:nth-child(even) {
+  .search-results .results-list .single-repo:nth-child(even) {
     margin: 0 1% 1% 0;
   }
   /* line 92, ../../dev/views/search/_search.scss */
-  .search-results .results-list li:nth-child(3n+3) {
+  .search-results .results-list .single-repo:nth-child(3n+3) {
     margin: 0 0 1% 0;
   }
   /* line 97, ../../dev/views/search/_search.scss */
-  .search-results .results-list li:nth-child(3n+4) {
+  .search-results .results-list .single-repo:nth-child(3n+4) {
     clear: left;
   }
 }
 @media (min-width: 1200px) {
   /* line 69, ../../dev/views/search/_search.scss */
-  .search-results .results-list li {
+  .search-results .results-list .single-repo {
     width: 24.25%;
     margin: 0 1% 1% 0;
   }
   /* line 109, ../../dev/views/search/_search.scss */
-  .search-results .results-list li:nth-child(even), .search-results .results-list li:nth-child(3n+3) {
+  .search-results .results-list .single-repo:nth-child(even), .search-results .results-list .single-repo:nth-child(3n+3) {
     margin: 0 1% 1% 0;
   }
   /* line 114, ../../dev/views/search/_search.scss */
-  .search-results .results-list li:nth-child(4n+4) {
+  .search-results .results-list .single-repo:nth-child(4n+4) {
     margin: 0 0 1% 0;
   }
   /* line 119, ../../dev/views/search/_search.scss */
-  .search-results .results-list li:nth-child(3n+4) {
+  .search-results .results-list .single-repo:nth-child(3n+4) {
     clear: none;
   }
   /* line 124, ../../dev/views/search/_search.scss */
-  .search-results .results-list li:nth-child(4n+5) {
+  .search-results .results-list .single-repo:nth-child(4n+5) {
     clear: left;
   }
 }
 /* line 130, ../../dev/views/search/_search.scss */
-.search-results .results-list li.expand {
+.search-results .results-list .single-repo.expand {
   width: 100%;
   margin: 0;
   text-align: center;
 }
 /* line 136, ../../dev/views/search/_search.scss */
-.search-results .results-list li.expand .repo-header h2 {
+.search-results .results-list .single-repo.expand .repo-header h2 {
   font-size: 30px;
   font-size: 1.875em;
   line-height: 45px;
   text-align: center;
 }
 /* line 143, ../../dev/views/search/_search.scss */
-.search-results .results-list li .inner-link {
+.search-results .results-list .single-repo .inner-link {
   min-height: 160px;
   padding: 20px;
 }
 /* line 149, ../../dev/views/search/_search.scss */
-.search-results .results-list li .repo-header {
+.search-results .results-list .single-repo .repo-header {
   *zoom: 1;
 }
 /* line 38, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.search-results .results-list li .repo-header:after {
+.search-results .results-list .single-repo .repo-header:after {
   content: "";
   display: table;
   clear: both;
 }
 /* line 153, ../../dev/views/search/_search.scss */
-.search-results .results-list li .repo-header img {
+.search-results .results-list .single-repo .repo-header img {
   width: 36px;
   display: block;
   height: auto;
-  display: inline-block;
+  margin-bottom: 10px;
 }
 /* line 161, ../../dev/views/search/_search.scss */
-.search-results .results-list li .repo-header h2 {
+.search-results .results-list .single-repo .repo-header h2 {
   text-align: left;
   color: #333333;
   -webkit-transition: all 0.3s ease-in-out;
@@ -1743,19 +1750,16 @@ em {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-/* line 172, ../../dev/views/search/_search.scss */
-.search-results .single-result {
+/* line 174, ../../dev/views/search/_search.scss */
+.search-results .single-result .repo-header {
+  background: white;
   padding: 20px;
 }
-/* line 176, ../../dev/views/search/_search.scss */
-.search-results .single-result .single-result-header {
-  background: white;
-}
-/* line 180, ../../dev/views/search/_search.scss */
-.search-results .single-result .single-result-header img {
+/* line 179, ../../dev/views/search/_search.scss */
+.search-results .single-result .repo-header img {
   width: 70px;
 }
-/* line 186, ../../dev/views/search/_search.scss */
+/* line 185, ../../dev/views/search/_search.scss */
 .search-results .single-result .repo-info {
   opacity: 0;
   -webkit-transition: all 0.3s ease-in-out;
@@ -1763,13 +1767,36 @@ em {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-/* line 191, ../../dev/views/search/_search.scss */
+/* line 190, ../../dev/views/search/_search.scss */
 .search-results .single-result .repo-info.active {
   opacity: 1;
 }
-/* line 196, ../../dev/views/search/_search.scss */
+/* line 195, ../../dev/views/search/_search.scss */
 .search-results .single-result .repo-info a {
   text-decoration: underline;
+}
+/* line 201, ../../dev/views/search/_search.scss */
+.search-results .single-result .repo-issues {
+  border-top: 1px solid #e6e6e6;
+  padding-top: 40px;
+  margin-top: 40px;
+}
+/* line 207, ../../dev/views/search/_search.scss */
+.search-results .single-result .repo-issues .issue-list {
+  list-style: disc inside none;
+  text-align: left;
+  padding: 20px;
+}
+/* line 214, ../../dev/views/search/_search.scss */
+.search-results .single-result .repo-issues .infinite-scroll {
+  width: 100%;
+  background: #e6e6e6;
+  display: block;
+  padding: 20px;
+}
+/* line 223, ../../dev/views/search/_search.scss */
+.search-results .single-result .single-issue {
+  margin: 20px 0;
 }
 
 /* line 6, ../../dev/sass/misc/_helpers.scss */
