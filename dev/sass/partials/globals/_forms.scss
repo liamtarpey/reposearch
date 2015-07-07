@@ -5,7 +5,7 @@
 
 
 $inputBorderRadius: 0;
-$inputMaxWidth: 480px;
+$inputMaxWidth: 360px;
 $textareaHeight: 260px;
 $disableFocus: true;
 
@@ -28,18 +28,16 @@ textarea {
 
 	margin-bottom: $baseline/2;
 	@include border-radius($inputBorderRadius);
-	border: 1px solid $col-grey;
-	
+	border: none; // reset base style
+	border-bottom: 3px solid $col-white;
 
 	@if $disableFocus {
 
 		&:focus {
 
 			outline: none;
-
 		}
 	}
-
 }
 
 input[type="text"],
@@ -52,8 +50,9 @@ input[type="password"] {
 	display: block;
 	width: 100%;
 	max-width: $inputMaxWidth;
-	padding: $baseline/2;
-
+	padding: $baseline/2 0;
+	background: none;
+	margin: 0 auto;
 }
 
 select,
@@ -61,14 +60,12 @@ textarea {
 
 	display: block;
 	@extend input[type="text"];
-
 }
 
 textarea {
 
 	resize: vertical;
 	min-height: $textareaHeight;
-
 } 
 
 .btn,
@@ -87,7 +84,6 @@ input[type="submit"] {
 		color: $primaryBtnColHover;
 		background: $primaryBtnBgHover;
 		text-decoration: none;
-
 	}
 
 	&.secondary {
@@ -99,17 +95,13 @@ input[type="submit"] {
 
 			color: $secondaryBtnCol;
 			background: $secondaryBtnBgHover;
-
 		}
-
 	}
 
 	&:hover {
 
 		cursor: pointer;
-
 	}
-
 }
 
 // ============================================================

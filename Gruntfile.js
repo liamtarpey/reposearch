@@ -78,6 +78,12 @@ module.exports = function(grunt) {
                     //spawn: false
                 }
             },
+            html :{
+                files: [
+                    'dev/views/**/*.html'
+                ],
+                tasks: ['copy']
+            },
             livereload: {
                 options: {
                     livereload: true

@@ -3,7 +3,7 @@
 // CORE 
 // ============================================================
 
-$backgroundColor: $col-white;
+$backgroundColor: $col-darkgrey;
 $containerWidth: 1200px;
 $containerPadding: $baseline;
 $containerCentering: true;
@@ -15,9 +15,7 @@ $includeBorderBox: true;
 	*, *:before, *:after {
 
 		@include box-sizing(border-box);
-
 	}
-
 }
 
 html, body {
@@ -25,13 +23,11 @@ html, body {
 	width: 100%;
 	overflow-x: hidden;
 	color: $col-black;
-
 }
 
 body {
 
 	background: $backgroundColor;
-
 }
 
 .wrapper {
@@ -42,13 +38,9 @@ body {
 
 	@if $containerCentering {
 
-		margin: 0 auto;
-		
+		margin: 0 auto;	
 	}
-
 }
-
-@include grid;
 
 
 // ============================================================

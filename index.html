@@ -17,6 +17,9 @@
 
         <!-- <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon"/> -->
         <link rel="stylesheet" href="assets/css/styles.css"/>
+
+        <link href='http://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
+
     </head>
 
     <body>
@@ -25,7 +28,21 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <ng-view></ng-view>
+        <!-- Include SVG sprite -->
+        <div ng-include="'assets/svg/sprite-defs.svg'"></div>
+
+        <header class="global-header">
+            <svg class="github-icon">
+              <use xlink:href="#icon-github4"></use>
+            <svg>
+            <h1>Search Github Repos</h1>
+        </header>
+
+        <main class="global-content">
+            <div class="wrapper">
+                <div ng-view></div>
+            </div>
+        </main>
 
         <script src="assets/js/main.min.js"></script>
         <script src="//localhost:35729/livereload.js"></script>

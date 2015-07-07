@@ -5,80 +5,72 @@
 // For font face imports, see font-face mixin
 
 
-@include open-sans(body input textarea select button label);	
+// @include open-sans(body input textarea select button label);	
+$raleway: 'Raleway', arial, sans-serif;
 
 html {
 
 	  font-size: 100%;
-
 }
 
 h1, h2, h3, h4, h5, h6, p {
 
 	  margin-bottom: $baseline/2;
-
+      font-family: $raleway;
+      text-align: center;
 }
 
-body, input, textarea, select, button, p, a {
+body, button, p, a, input, textarea, select  {
 
     @include font(16);
-
+    color: $col-white;
 }
 
 h1, .h1, .alpha {
 
-    @include font(48);
-
+    @include font(34);
 }
 
 h2, .h2, .beta {
 
-    @include font(32);
-
+    @include font(28);
 }
 
 h3, .h3, .gamma {
 
     @include font(24);
-
 }
 
 h4, .h4, .delta {
 
     @include font(22);
-
 }
 
 h5, .h5, .epsilon, 
 h6, .h6, .zeta {
 
    @include font(18);
-
 }
 
 .mega {
 
 	  @include font(72);
-
 }
 
 small,
 .tiny {
 
     @include font(14);
-
 }
 
 strong {
 
     font-weight: bold;
-
 }
 
 em {
 
     font-style: italic;
-
 }
 
 
