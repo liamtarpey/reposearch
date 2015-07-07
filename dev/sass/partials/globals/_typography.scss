@@ -1,0 +1,85 @@
+
+// ============================================================
+// TYPOGRAPHY 
+// ============================================================
+// For font face imports, see font-face mixin
+
+
+@include open-sans(body input textarea select button label);	
+
+html {
+
+	  font-size: 100%;
+
+}
+
+h1, h2, h3, h4, h5, h6, p {
+
+	  margin-bottom: $baseline/2;
+
+}
+
+body, input, textarea, select, button, p, a {
+
+    @include font(16);
+
+}
+
+h1, .h1, .alpha {
+
+    @include font(48);
+
+}
+
+h2, .h2, .beta {
+
+    @include font(32);
+
+}
+
+h3, .h3, .gamma {
+
+    @include font(24);
+
+}
+
+h4, .h4, .delta {
+
+    @include font(22);
+
+}
+
+h5, .h5, .epsilon, 
+h6, .h6, .zeta {
+
+   @include font(18);
+
+}
+
+.mega {
+
+	  @include font(72);
+
+}
+
+small,
+.tiny {
+
+    @include font(14);
+
+}
+
+strong {
+
+    font-weight: bold;
+
+}
+
+em {
+
+    font-style: italic;
+
+}
+
+
+// ============================================================

@@ -1,0 +1,88 @@
+
+// ============================================================
+// PRINT 
+// ============================================================
+
+$hideHeader: false;
+$hideFooter: true;
+
+@media print {
+
+	*,
+	*:before,
+	*:after {
+
+		color: #000;
+		text-shadow: none;
+		box-shadow: none;
+		background: transparent;
+
+	}
+
+	a {
+		
+		text-decoration: underline;
+		
+
+		&:visited {
+
+			text-decoration: underline;
+
+		}
+
+		&[href] {
+
+			&:after {
+
+				content:" (" attr(href) ") ";
+				font-size:0.8em;
+				font-weight:normal;
+
+			}
+
+		}
+
+		&[href^="#"],
+		&[href*="#"],
+		&[href^="javascript:;"],
+		&[href*="javascript:;"] {
+
+			&:after {
+
+				content: '';
+
+			}
+
+		}
+
+	}
+
+	input[type="submit"] {
+
+		display: none;
+
+	}
+
+	@if $hideHeader {
+
+		header {
+
+			display: none;
+
+		}
+
+	}
+
+	@if $hideFooter {
+
+		footer {
+
+			display: none;
+
+		}
+
+	}
+
+}
+
+// ============================================================

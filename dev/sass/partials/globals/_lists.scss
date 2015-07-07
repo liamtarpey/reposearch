@@ -1,0 +1,34 @@
+
+// ============================================================
+// LISTS 
+// ============================================================
+
+ul, ol {
+
+	margin-bottom: $baseline/2;
+
+	&.inline-list {
+	
+		li {
+
+			display: inline-block;
+			margin-right: $baseline/2;
+
+		}
+
+	}
+
+	&.stacked-list {
+
+		li {
+
+			display: block;
+			margin-bottom: $baseline/2;
+
+		}
+
+	}
+
+}
+
+// ============================================================

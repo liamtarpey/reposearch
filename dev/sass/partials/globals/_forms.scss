@@ -1,0 +1,115 @@
+
+// ============================================================
+// FORMS 
+// ============================================================
+
+
+$inputBorderRadius: 0;
+$inputMaxWidth: 480px;
+$textareaHeight: 260px;
+$disableFocus: true;
+
+// Button colours
+$primaryBtnCol: $col-white;
+$primaryBtnColHover: $col-white;
+$primaryBtnBg: $col-green;
+$primaryBtnBgHover: $col-red;
+$secondaryBtnCol: $col-white;
+$secondaryBtnColHover: $col-white;
+$secondaryBtnBg: $col-blue;
+$secondaryBtnBgHover: $col-yellow;
+
+
+.btn,
+input,
+button,
+select,
+textarea {
+
+	margin-bottom: $baseline/2;
+	@include border-radius($inputBorderRadius);
+	border: 1px solid $col-grey;
+	
+
+	@if $disableFocus {
+
+		&:focus {
+
+			outline: none;
+
+		}
+	}
+
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="password"] {
+
+	display: block;
+	width: 100%;
+	max-width: $inputMaxWidth;
+	padding: $baseline/2;
+
+}
+
+select,
+textarea {
+
+	display: block;
+	@extend input[type="text"];
+
+}
+
+textarea {
+
+	resize: vertical;
+	min-height: $textareaHeight;
+
+} 
+
+.btn,
+button,
+input[type="submit"] {
+
+	border: none;
+	width: auto;
+	padding: $baseline/4 $baseline/2;
+	background: $primaryBtnBg;
+	color: $primaryBtnCol;
+	display: inline-block;
+
+	&:hover {
+
+		color: $primaryBtnColHover;
+		background: $primaryBtnBgHover;
+		text-decoration: none;
+
+	}
+
+	&.secondary {
+
+		background: $secondaryBtnBg;
+		color: $secondaryBtnCol;
+
+		&:hover {
+
+			color: $secondaryBtnCol;
+			background: $secondaryBtnBgHover;
+
+		}
+
+	}
+
+	&:hover {
+
+		cursor: pointer;
+
+	}
+
+}
+
+// ============================================================

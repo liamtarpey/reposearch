@@ -1,0 +1,26 @@
+
+// ============================================================
+// TABLES 
+// ============================================================
+
+$tableWidth: 100%;
+$cellWidth: 25%;
+$borderWidth: 1px;
+$borderColor: $col-grey;
+
+
+table {
+
+	width: $tableWidth;
+
+	th, td {
+
+		border-bottom: $borderWidth solid $borderColor;
+		padding: $baseline/2;
+		width: $cellWidth;
+
+	}
+
+}
+
+// ============================================================

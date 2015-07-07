@@ -1,0 +1,52 @@
+
+// ============================================================
+// BLOCKQUOTES 
+// ============================================================
+
+$blockquotePadding: $baseline/4 $baseline;
+$blockquoteWidth: 60%;
+
+$quotesFont: georgia;
+$quotesColor: $col-grey;
+
+
+blockquote {
+
+	quotes: "\201C""\201D""\2018""\2019";
+  	border-left: 7px solid $col-green;
+  	padding: $blockquotePadding;
+  	width: 100%;
+  	
+  	@include breakpoint($tablet) {
+
+  		max-width: $blockquoteWidth;
+
+  	}
+
+  	&:before,
+  	&:after {
+
+		@include font(26);
+		color: $quotesColor;
+		font-family: $quotesFont;
+		display: inline;
+		line-height: 1px;
+		vertical-align: -5px;
+
+  	}
+
+	&:before {
+
+		content: open-quote;
+	
+	}
+
+	&:after {
+
+		content: close-quote;
+
+	}
+
+}
+
+// ============================================================
