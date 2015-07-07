@@ -5,7 +5,7 @@
 // For font face imports, see font-face mixin
 
 
-// @include open-sans(body input textarea select button label);	
+@include open-sans(body input textarea select button label);	
 $raleway: 'Raleway', arial, sans-serif;
 
 html {
@@ -13,17 +13,22 @@ html {
 	  font-size: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6 {
 
 	margin-bottom: $baseline/2;
     font-family: $raleway;
-    text-align: center;
+}
+
+p {
+
+    margin-bottom: $baseline/2;
 }
 
 body, button, p, a, input, textarea, select  {
 
     @include font(16);
     color: $col-darkgrey;
+    text-align: center;
 }
 
 h1, .h1, .alpha {

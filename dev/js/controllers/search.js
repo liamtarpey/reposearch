@@ -30,16 +30,16 @@ app.controller('search',
 			// Hide loading message
 			$scope.loading = false;
 
-			// Slide search area to the left & show results
+			// Slide search area to the left
 			$scope.pushSearchLeft = true;
-			$scope.showResults    = true;
 
 			// Append data to scope
 			$scope.repositories = data.items;
 
-			if($scope.repositories.length == 0) {
+			// If results > 0, show list items
+			if(!$scope.repositories.length == 0) {
 
-				console.log("empty!")
+				$scope.showResults = true;
 			}
 
 			console.log($scope.repositories);

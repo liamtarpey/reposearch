@@ -8,6 +8,11 @@
 	display: block;
 }
 
+a.block {
+
+	margin-bottom: $baseline;
+}
+
 .inline {
 
 	display: inline-block;

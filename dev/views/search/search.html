@@ -15,7 +15,7 @@
 
 	<div class="search-results" ng-class="{active:showResults}">
 
-		<ul class="results-list" ng-class="{loading:loading}" ng-show="repositories.length">
+		<ul class="results-list" ng-class="{loading:loading}">
 			<li ng-repeat="repo in repositories" ng-class="{expand:showSingle}">
 				<a href="javascript:;" target="_blank" class="block inner-link" ng-click="showSingleRepo(repo)" ng-if="!showSingle">
 					<div class="repo-header">
@@ -29,7 +29,9 @@
 						<h2 ng-bind-html="repo.name"></h2>
 					</div>
 					<div class="repo-info" ng-class="{active:delayInfo}">
-						<a ng-href="{{repo.html_url}}" target="_blank" ng-bind-html="repo.html_url"></a>
+						<a ng-href="{{repo.html_url}}" target="_blank" class="block" ng-bind-html="repo.html_url"></a>
+						<p ng-bind-html="repo.description" ng-if="repo.description.length"></p>
+						<p class="octicon octicon-eye-watch">{{repo.watchers}} Watchers</p>
 					</div>
 				</div>
 			</li>
