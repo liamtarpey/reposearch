@@ -16,8 +16,8 @@ html {
 h1, h2, h3, h4, h5, h6, p {
 
 	  margin-bottom: $baseline/2;
-      font-family: $raleway;
-      text-align: center;
+    font-family: $raleway;
+    text-align: center;
 }
 
 body, button, p, a, input, textarea, select  {
@@ -28,12 +28,12 @@ body, button, p, a, input, textarea, select  {
 
 h1, .h1, .alpha {
 
-    @include font(34);
+    @include font(27);
 }
 
 h2, .h2, .beta {
 
-    @include font(28);
+    @include font(14);
 }
 
 h3, .h3, .gamma {

@@ -27598,34 +27598,102 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
  	$routeProvider
 
         .when('/', {
+
         	templateUrl: '/ng-views/search.html',
         	controller : 'search'
         })
 
         
   	$locationProvider.html5Mode({
+
 	  	enabled: true,
 	  	requireBase: false
 	});
-
 }]);
 app.controller('search', 
 	['$scope', 
 	'$http', 
 	'$sce', 
 	'$timeout', 
-	'reposearch', 
-	function ($scope, $http, $sce, $timeout, reposearch) {
+	'api', 
+	function ($scope, $http, $sce, $timeout, api) {
 
-	// Search controller
+	// Vars
+	var getRepoUrl = "https://api.github.com/search/repositories?q=";
+
+	// Scope vars
+	$scope.showResults    = false;
+	$scope.pushSearchLeft = false;
+	$scope.showSingle     = false;
+	$scope.loading        = false;
+	$scope.expandHeader   = false;
+
+	$scope.getRepos = function(val) {
+
+		// Show loading message
+		$scope.loading = true;
+
+		// API call with value passed from input
+		api.getData(getRepoUrl+val).then(function(data) {
+
+			// Hide loading message
+			$scope.loading = false;
+
+			// Slide search area to the left & show results
+			$scope.pushSearchLeft = true;
+			$scope.showResults    = true;
+
+			// Append data to scope
+			$scope.repositories = data.items;
+
+			console.log($scope.repositories);
+		});
+	};
+
+	$scope.showSingleRepo = function(item) {
+
+		// Hide all results and show single repo view
+		$scope.showSingle = true;
+
+		console.log(item);
+
+		var index   = $scope.repositories.indexOf(item),
+  		    spliced = $scope.repositories.splice(index, 1);  
+
+  		$scope.repositories = spliced;
+
+  		$timeout(function() {
+
+  			$scope.expandHeader = true;
+  		},500);
+	};
 
 }]);
-app.factory('reposearch', function() {
+
+
+
+
+app.factory('api', ['$http', '$q', function($http, $q) {
 
     return {
-    	isLoading : true
+
+    	getData : function(url) {
+
+            var def = $q.defer();
+
+            $http.get(url).success(function(data) {
+
+                def.resolve(data);
+
+            }).error(function() {
+
+                def.reject("Failed to get posts");
+            });
+
+            return def.promise;
+        }
     }
-});
+}]);
 /**
  * @license AngularJS v1.3.4
  * (c) 2010-2014 Google, Inc. http://angularjs.org

@@ -1,3 +1,39 @@
 
 
-<input type="text" placeholder="Search here!" />
+<!-- <input type="text" placeholder="Search here!" ng-model="myValue" ng-keyup="getRepos(myValue)" /> -->
+{{showSingleRepo}}
+
+<div class="search-container">
+	<div class="search-area left" ng-class="{left:pushSearchLeft}">
+		<header class="global-header">
+	        <svg class="github-icon">
+	          <use xlink:href="#icon-github4"></use>
+	        <svg>
+	        <h1>Search Github Repos</h1>
+	    </header>
+		<input type="text" placeholder="Search here!" ng-model="myValue" />
+		<a href="javascript:;" ng-click="getRepos(myValue)">Search</a>
+	</div>
+
+	<div class="search-results" ng-if="showResults">
+		<p ng-if="loading">Loading...</p>
+
+		<ul class="results-list">
+			<li ng-repeat="repo in repositories" ng-class="{expand:expandHeader}">
+				{{showSingleRepo}}
+				<a href="javascript:;" target="_blank" class="block" ng-click="showSingleRepo(repo)" ng-if="!showSingle">
+					<div class="repo-header">
+						<img ng-src="{{repo.owner.avatar_url}}" alt="Owner avatar" />
+						<h2 ng-bind-html="repo.name"></h2>
+					</div>
+				</a>
+				<div class="single-result" ng-if="showSingle">
+					<div class="repo-header">
+						<img ng-src="{{repo.owner.avatar_url}}" alt="Owner avatar" />
+						<h2 ng-bind-html="repo.name"></h2>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

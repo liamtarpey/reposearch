@@ -5,14 +5,15 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
  	$routeProvider
 
         .when('/', {
+
         	templateUrl: '/ng-views/search.html',
         	controller : 'search'
         })
 
         
   	$locationProvider.html5Mode({
+
 	  	enabled: true,
 	  	requireBase: false
 	});
-
 }]);

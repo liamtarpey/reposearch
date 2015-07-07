@@ -85,7 +85,7 @@ body {
 /* line 33, ../../dev/sass/partials/globals/_core.scss */
 .wrapper {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   padding: 20px;
   margin: 0 auto;
 }
@@ -236,11 +236,11 @@ a {
 }
 /* line 19, ../../dev/sass/partials/globals/_links.scss */
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 /* line 25, ../../dev/sass/partials/globals/_links.scss */
 a:active {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* line 6, ../../dev/sass/partials/globals/_lists.scss */
@@ -291,16 +291,16 @@ body, button, p, a, input, textarea, select {
 
 /* line 29, ../../dev/sass/partials/globals/_typography.scss */
 h1, .h1, .alpha {
-  font-size: 34px;
-  font-size: 2.125em;
-  line-height: 51px;
+  font-size: 27px;
+  font-size: 1.6875em;
+  line-height: 40.5px;
 }
 
 /* line 34, ../../dev/sass/partials/globals/_typography.scss */
 h2, .h2, .beta {
-  font-size: 28px;
-  font-size: 1.75em;
-  line-height: 42px;
+  font-size: 14px;
+  font-size: 0.875em;
+  line-height: 21px;
 }
 
 /* line 39, ../../dev/sass/partials/globals/_typography.scss */
@@ -360,6 +360,113 @@ em {
   width: 50px;
   height: 50px;
   margin: 0 auto;
+}
+
+/* line 3, ../../dev/views/search/_search.scss */
+.search-container {
+  *zoom: 1;
+}
+/* line 38, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.search-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 8, ../../dev/views/search/_search.scss */
+.search-area {
+  width: 20%;
+  float: left;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+/* line 17, ../../dev/views/search/_search.scss */
+.search-area.left {
+  left: 0;
+  margin: 0;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+
+/* line 25, ../../dev/views/search/_search.scss */
+.search-results {
+  width: 75%;
+  float: right;
+}
+/* line 31, ../../dev/views/search/_search.scss */
+.search-results .results-list {
+  *zoom: 1;
+}
+/* line 38, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.search-results .results-list:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 35, ../../dev/views/search/_search.scss */
+.search-results .results-list li {
+  float: left;
+  width: 24.25%;
+  margin: 0 1% 1% 0;
+  background: white;
+  padding: 20px;
+  min-height: 160px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+/* line 45, ../../dev/views/search/_search.scss */
+.search-results .results-list li.expand {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+/* line 52, ../../dev/views/search/_search.scss */
+.search-results .results-list li:nth-child(4n+4) {
+  margin: 0 0 1% 0;
+}
+/* line 57, ../../dev/views/search/_search.scss */
+.search-results .results-list li:nth-child(4n+5) {
+  clear: left;
+}
+/* line 62, ../../dev/views/search/_search.scss */
+.search-results .results-list li .repo-header {
+  *zoom: 1;
+}
+/* line 38, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.search-results .results-list li .repo-header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 66, ../../dev/views/search/_search.scss */
+.search-results .results-list li .repo-header img {
+  width: 36px;
+  display: block;
+  height: auto;
+  display: inline-block;
+}
+/* line 74, ../../dev/views/search/_search.scss */
+.search-results .results-list li .repo-header h2 {
+  text-align: left;
+  color: #333333;
+}
+/* line 86, ../../dev/views/search/_search.scss */
+.search-results .single-result .single-result-header {
+  background: white;
 }
 
 /* line 6, ../../dev/sass/misc/_helpers.scss */
