@@ -96,6 +96,15 @@ module.exports = function(grunt) {
                     'assets/**/*'
                 ]
             }
+        },
+
+        karma: {
+          unit: {
+            configFile: 'karma.conf.js',
+            port: 9999,
+            singleRun: true,
+            logLevel: 'ERROR'
+          }
         }
 
     });
@@ -107,6 +116,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-karma');
 
     // Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', ['concat', 'uglify', 'copy', 'compass', 'watch']);

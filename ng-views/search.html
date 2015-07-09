@@ -37,7 +37,7 @@
 					</div>
 					<div class="repo-issues">
 						<h3>{{repo.open_issues}} Open Issues</h3>
-						<a href="javascript:;" ng-click="showIssues=!showIssues" ng-hide="showIssues" class="btn">See Issues</a>
+						<a href="javascript:;" ng-click="showIssues=!showIssues" ng-hide="repo.open_issues == 0" class="btn">See Issues</a>
 						<ul ng-show="showIssues" class="issue-list">
 							<li ng-repeat="issue in issues" class="single-issue">
 								<a href="{{repo.html_url}}/issues/{{issue.number}}" target="_blank">{{issue.title | limitTo:80 }}...</a>

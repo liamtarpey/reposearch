@@ -27675,7 +27675,6 @@ app.controller('search',
 
 				$scope.showResults = true;
 			}
-
 		});
 	};
 

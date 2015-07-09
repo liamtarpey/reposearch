@@ -1593,26 +1593,26 @@ em {
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  -webkit-transform: translateX(200%);
+  -moz-transform: translateX(200%);
+  -ms-transform: translateX(200%);
+  -o-transform: translateX(200%);
+  transform: translateX(200%);
 }
 @media (min-width: 840px) {
   /* line 30, ../../dev/views/search/_search.scss */
   .search-results {
     width: 75%;
     float: right;
-    -webkit-transform: translateX(200%);
-    -moz-transform: translateX(200%);
-    -ms-transform: translateX(200%);
-    -o-transform: translateX(200%);
-    transform: translateX(200%);
   }
-  /* line 42, ../../dev/views/search/_search.scss */
-  .search-results.active {
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -o-transform: translateX(0);
-    transform: translateX(0);
-  }
+}
+/* line 43, ../../dev/views/search/_search.scss */
+.search-results.active {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
 }
 /* line 48, ../../dev/views/search/_search.scss */
 .search-results .cta {

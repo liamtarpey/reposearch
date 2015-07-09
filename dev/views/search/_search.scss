@@ -32,17 +32,17 @@
 	padding-top: $baseline*2;
 	position: relative;
 	@include transition(all .3s ease-in-out);
+	@include translateX(200%);
 
 	@include breakpoint($tablet) {
 
 		width: 75%;
 		float: right;
-		@include translateX(200%);
+	}
 
-		&.active {
+	&.active {
 
-			@include translateX(0);
-		}
+		@include translateX(0);
 	}
 
 	.cta {
