@@ -21,8 +21,9 @@
         <div ng-include="'assets/svg/sprite-defs.svg'"></div>
 
         <main class="global-content">
-            <div class="wrapper">
-                <div ng-view></div>
+            <div class="wrapper" ng-controller="search">
+                <!-- <div ng-view></div> -->
+                <div ng-include="'ng-views/search.html'"></div>
             </div>
         </main>
 

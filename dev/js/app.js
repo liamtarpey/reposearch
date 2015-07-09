@@ -1,19 +1,19 @@
 var app = angular.module('reposearch', ['ngRoute','ngSanitize']);
 
-app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+// app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
  	
- 	$routeProvider
+//  	$routeProvider
 
-        .when('/:all', {
+//         .when('/', {
 
-        	templateUrl: '/ng-views/search.html',
-        	controller : 'search'
-        })
+//         	templateUrl: '/ng-views/search.html',
+//         	controller : 'search'
+//         })
 
         
-  	$locationProvider.html5Mode({
+//   	$locationProvider.html5Mode({
 
-	  	enabled: true,
-	  	requireBase: false
-	});
-}]);
+// 	  	enabled: true,
+// 	  	requireBase: false
+// 	});
+// }]);
