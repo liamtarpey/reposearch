@@ -1721,13 +1721,14 @@ em {
   font-size: 1.875em;
   line-height: 45px;
   text-align: center;
+  word-wrap: break-word;
 }
-/* line 148, ../../dev/views/search/_search.scss */
+/* line 149, ../../dev/views/search/_search.scss */
 .search-results .results-list .single-repo .inner-link {
   min-height: 160px;
   padding: 20px;
 }
-/* line 154, ../../dev/views/search/_search.scss */
+/* line 155, ../../dev/views/search/_search.scss */
 .search-results .results-list .single-repo .repo-header {
   *zoom: 1;
 }
@@ -1737,14 +1738,14 @@ em {
   display: table;
   clear: both;
 }
-/* line 158, ../../dev/views/search/_search.scss */
+/* line 159, ../../dev/views/search/_search.scss */
 .search-results .results-list .single-repo .repo-header img {
   width: 36px;
   display: block;
   height: auto;
   margin-bottom: 10px;
 }
-/* line 166, ../../dev/views/search/_search.scss */
+/* line 167, ../../dev/views/search/_search.scss */
 .search-results .results-list .single-repo .repo-header h2 {
   text-align: left;
   color: #333333;
@@ -1753,16 +1754,16 @@ em {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-/* line 179, ../../dev/views/search/_search.scss */
+/* line 180, ../../dev/views/search/_search.scss */
 .search-results .single-result .repo-header {
   background: white;
   padding: 20px;
 }
-/* line 184, ../../dev/views/search/_search.scss */
+/* line 185, ../../dev/views/search/_search.scss */
 .search-results .single-result .repo-header img {
   width: 70px;
 }
-/* line 190, ../../dev/views/search/_search.scss */
+/* line 191, ../../dev/views/search/_search.scss */
 .search-results .single-result .repo-info {
   opacity: 0;
   -webkit-transition: all 0.3s ease-in-out;
@@ -1770,33 +1771,33 @@ em {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-/* line 195, ../../dev/views/search/_search.scss */
+/* line 196, ../../dev/views/search/_search.scss */
 .search-results .single-result .repo-info.active {
   opacity: 1;
 }
-/* line 200, ../../dev/views/search/_search.scss */
+/* line 201, ../../dev/views/search/_search.scss */
 .search-results .single-result .repo-info a {
   text-decoration: underline;
 }
-/* line 206, ../../dev/views/search/_search.scss */
+/* line 207, ../../dev/views/search/_search.scss */
 .search-results .single-result .repo-issues {
   border-top: 1px solid #e6e6e6;
   padding: 40px 0;
   margin-top: 40px;
 }
-/* line 212, ../../dev/views/search/_search.scss */
+/* line 213, ../../dev/views/search/_search.scss */
 .search-results .single-result .repo-issues .issue-list {
   padding: 20px;
 }
-/* line 216, ../../dev/views/search/_search.scss */
+/* line 217, ../../dev/views/search/_search.scss */
 .search-results .single-result .repo-issues .issue-list li {
   margin: 10px 0;
 }
-/* line 220, ../../dev/views/search/_search.scss */
+/* line 221, ../../dev/views/search/_search.scss */
 .search-results .single-result .repo-issues .issue-list li a {
   text-decoration: underline;
 }
-/* line 227, ../../dev/views/search/_search.scss */
+/* line 228, ../../dev/views/search/_search.scss */
 .search-results .single-result .repo-issues .infinite-scroll {
   width: 100%;
   background: #e6e6e6;
