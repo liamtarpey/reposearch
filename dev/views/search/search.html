@@ -51,7 +51,7 @@
 
 		<div class="cta">
 			<a href="javascript:;" ng-click="getRepos(myValue)" ng-if="showSingle" class="btn">Back</a>
-			<a href="javascript:;" ng-click="getRepos(myValue)" ng-if="!showSingle" class="btn">More repositories</a>
+			<a href="javascript:;" ng-click="getRepos(myValue)" ng-if="!showSingle && showInfinite" class="btn">More repositories</a>
 		</div>
 
 		<h2 ng-class="{active:!repositories.length}" class="error empty-repo">Unfortunately no repositories exist with that name!</h2>

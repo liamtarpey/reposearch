@@ -23,6 +23,7 @@ app.controller('search',
 	$scope.reposPerPage   = 0;
 	$scope.repoPageNum    = 1;
 	$scope.showMoreBtn    = true;
+	$scope.showInifinite  = false;
 
 	$scope.getRepos = function(val) {
 
@@ -36,6 +37,7 @@ app.controller('search',
 		$scope.perPage      = 0;
 		$scope.pageNumber   = 1;
 		$scope.showMoreBtn  = true;
+		$scope.showInfinite = false;
 
 		// Increment the page number by 1 once the API call reaches the max limit of 100 results per page
 		if($scope.reposPerPage > 100) {
@@ -63,6 +65,11 @@ app.controller('search',
 
 				$scope.showResults = true;
 			}
+
+			if($scope.repositories.length >= 30) {
+
+				$scope.showInfinite = true;
+			};
 		});
 	};
 
@@ -112,8 +119,9 @@ app.controller('search',
 
   		$scope.repositories = spliced;
 
-  		// Reset repository list
+  		// Reset scopes
   		$scope.reposPerPage = 0;
+  		$scope.showInfinite = false;
 
   		// Rerun get repo function for selected repository
   		$scope.getRepositoryIssues(item, fullname, page);
