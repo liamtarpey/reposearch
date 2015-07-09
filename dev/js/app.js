@@ -4,7 +4,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
  	
  	$routeProvider
 
-        .when('/reposearch', {
+        .when('/reposearch/', {
 
         	templateUrl: '/ng-views/search.html',
         	controller : 'search'
