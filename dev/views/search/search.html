@@ -20,13 +20,13 @@
 				<a href="javascript:;" target="_blank" class="block inner-link" ng-click="showSingleRepo(repo, repo.full_name)" ng-if="!showSingle">
 				<div class="repo-header">
 						<img ng-src="{{repo.owner.avatar_url}}" alt="Owner avatar" />
-						<h2 ng-bind-html="repo.name"></h2>
+						<h2 ng-bind-html="repo.full_name"></h2>
 					</div>
 				</a>
 				<div class="single-result" ng-if="showSingle">
 					<div class="repo-header">
 						<img ng-src="{{repo.owner.avatar_url}}" alt="Owner avatar" />
-						<h2 ng-bind-html="repo.name"></h2>
+						<h2 ng-bind-html="repo.full_name"></h2>
 					</div>
 					<div class="repo-info" ng-class="{active:delayInfo}">
 						<a ng-href="{{repo.html_url}}" target="_blank" class="block" ng-bind-html="repo.html_url"></a>
