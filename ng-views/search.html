@@ -32,22 +32,27 @@
 						<a ng-href="{{repo.html_url}}" target="_blank" class="block" ng-bind-html="repo.html_url"></a>
 						<p ng-bind-html="repo.description" ng-if="repo.description.length"></p>
 						<p class="octicon octicon-eye-watch">{{repo.watchers}} Watchers</p>
+						<p class="octicon octicon-star">{{repo.stargazers_count}} Stargazers</p>
+						<p class="octicon octicon-repo-forked">{{repo.forks}} Forks</p>
 					</div>
 					<div class="repo-issues">
 						<h3>{{repo.open_issues}} Open Issues</h3>
-						<a href="javascript:;" ng-click="showIssues=!showIssues" class="btn">See Issues</a>
+						<a href="javascript:;" ng-click="showIssues=!showIssues" ng-hide="showIssues" class="btn">See Issues</a>
 						<ul ng-show="showIssues" class="issue-list">
 							<li ng-repeat="issue in issues" class="single-issue">
 								<a href="{{repo.html_url}}/issues/{{issue.number}}" target="_blank">{{issue.title | limitTo:80 }}...</a>
 							</li>
 						</ul>
-						<a href="javascript:;" ng-show="showIssues" ng-click="showSingleRepo(repo, repo.full_name)" class="infinite-scroll">More issues...</a>
+						<a href="javascript:;" ng-show="showIssues && showMoreBtn" ng-click="showSingleRepo(repo, repo.full_name)" class="infinite-scroll">More issues</a>
 					</div>
 				</div>
 			</li>
 		</ul>
 
-		<a href="javascript:;" ng-click="getRepos(myValue)" class="btn">More repositories...</a>
+		<div class="cta">
+			<a href="javascript:;" ng-click="getRepos(myValue)" ng-if="showSingle" class="btn">Back</a>
+			<a href="javascript:;" ng-click="getRepos(myValue)" ng-if="!showSingle" class="btn">More repositories</a>
+		</div>
 
 		<h2 ng-class="{active:!repositories.length}" class="error empty-repo">Unfortunately no repositories exist with that name!</h2>
 

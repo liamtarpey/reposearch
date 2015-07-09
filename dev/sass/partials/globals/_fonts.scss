@@ -29,7 +29,7 @@ $octicons-version:   "932555081d58ad24701c658c97328237bbc156d2";
 
 .octicon:before {
    font: normal normal normal 16px/1 octicons;
-   margin-right: $baseline/2;
+   margin: 0 7px 0 18px;
 }
 
 .octicon-alert:before { content: '\f02d'} /*  */

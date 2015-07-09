@@ -12,8 +12,8 @@ $disableFocus: true;
 // Button colours
 $primaryBtnCol: $col-white;
 $primaryBtnColHover: $col-white;
-$primaryBtnBg: $col-green;
-$primaryBtnBgHover: $col-red;
+$primaryBtnBg: $col-red;
+$primaryBtnBgHover: lighten($col-red, 4%);
 $secondaryBtnCol: $col-white;
 $secondaryBtnColHover: $col-white;
 $secondaryBtnBg: $col-blue;
@@ -79,8 +79,7 @@ input[type="submit"] {
 	padding: $baseline/4 $baseline/2;
 	background: $primaryBtnBg;
 	color: $primaryBtnCol;
-	@include border-radius(4px);
-	text-transform: uppercase;
+	@include border-radius(2px);
 	display: inline-block;
 
 	&:hover {

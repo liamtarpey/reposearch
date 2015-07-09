@@ -27634,23 +27634,29 @@ app.controller('search',
 	$scope.pageNumber     = 1;
 	$scope.reposPerPage   = 0;
 	$scope.repoPageNum    = 1;
+	$scope.showMoreBtn    = true;
 
 	$scope.getRepos = function(val) {
 
-		// Show loading message
+		// Show loading 
 		$scope.loading = true;
 
 		// Remove expand if true
-		$scope.showSingle   = false;
+		$scope.showSingle = false;
 
+		// Reset scopes
+		$scope.perPage      = 0;
+		$scope.pageNumber   = 1;
+		$scope.showMoreBtn  = true;
 
+		// Increment the page number by 1 once the API call reaches the max limit of 100 results per page
 		if($scope.reposPerPage > 100) {
 
 			$scope.repoPageNum += 1;
-		} else {
+		} else { // Increment the posts per page by 30 on every call
 
 			$scope.reposPerPage += 30;
-		}
+		};
 
 		// API call with value passed from input
 		api.getData(getRepoUrl+val+"&per_page="+$scope.reposPerPage+"&page="+$scope.repoPageNum).then(function(data) {
@@ -27670,31 +27676,48 @@ app.controller('search',
 				$scope.showResults = true;
 			}
 
-			console.log($scope.repositories);
 		});
 	};
 
 	$scope.getRepositoryIssues = function(item, fullname) {
 
+		// Show loading 
+		$scope.loading = true;
+
+		// Reset scopes
+		$scope.reposPerPage = 0;
+		$scope.repoPageNum  = 1;
+		$scope.showMoreBtn  = true;
 	
 		// Increment the page number by 1 once the API call reaches the max limit of 100 results per page
 		if($scope.perPage > 100) {
 
 			$scope.pageNumber += 1;
-		} else {
+		} else { // Increment the posts per page by 10 on every call
 
-			// Increment the posts per page by 3 on every call
-			$scope.perPage += 3;
-		}
+			$scope.perPage += 10;
+		};
 
 		// API call to retreive issues
   		api.getData(getRepoIssues+fullname+"/issues?per_page="+$scope.perPage+"&page="+$scope.pageNumber).then(function(data) {
 
   			$scope.issues = data;
+
+  			// Show loading 
+			$scope.loading = false;
+
+  			// Hide load more button if no more issues to load
+  			if($scope.perPage > $scope.issues.length) {
+
+				$scope.showMoreBtn = false;
+			};
   		});
 	};
 
 	$scope.showSingleRepo = function(item, fullname, page) {
+
+		// Show loading 
+		$scope.loading = true;
 
 		// Remove all other items from repository array
 		var index   = $scope.repositories.indexOf(item),
@@ -27702,19 +27725,21 @@ app.controller('search',
 
   		$scope.repositories = spliced;
 
+  		// Reset repository list
   		$scope.reposPerPage = 0;
 
+  		// Rerun get repo function for selected repository
   		$scope.getRepositoryIssues(item, fullname, page);
 
+  		// Hide all results and show single repo view
   		$timeout(function() {
-
-  			// Hide all results and show single repo view
+  			
 			$scope.showSingle = true;
   		},500);
 
+  		// Fade in info with timeout
   		$timeout(function() {
-
-  			// Fade in info with timeout
+  			
   			$scope.delayInfo = true;
   		}, 1000);
 	};

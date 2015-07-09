@@ -45,6 +45,11 @@
 		}
 	}
 
+	.cta {
+
+		text-align: left;
+	}
+
 	// Empty repo list
 	.empty-repo {
 
@@ -201,14 +206,22 @@
 		.repo-issues {
 
 			border-top: 1px solid $col-lightgrey;
-		    padding-top: 40px;
+		    padding: 40px 0;
 		    margin-top: 40px;
 
 		    .issue-list {
 
-		    	list-style: disc inside none;
-		    	text-align: left;
 		    	padding: $baseline;
+
+		    	li {
+
+		    		margin: $baseline/2 0;
+
+		    		a {
+
+		    			text-decoration: underline;
+		    		}
+		    	}
 		    }
 
 		    .infinite-scroll {
@@ -218,11 +231,6 @@
 		    	display: block;
 		    	padding: $baseline;
 		    }
-		}
-
-		.single-issue {
-
-			margin: $baseline 0;
 		}
 	}
 }
